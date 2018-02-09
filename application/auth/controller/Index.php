@@ -1,7 +1,7 @@
 <?php
 namespace app\auth\controller;
-
-class Index
+use think\Controller;
+class Index extends Controller
 {
     public function index()
     {
@@ -13,4 +13,8 @@ class Index
         return 'hello,' . $name;
     }
 
+    public function ss()
+    {
+        dump($this->request->isPost());
+    }
 }
