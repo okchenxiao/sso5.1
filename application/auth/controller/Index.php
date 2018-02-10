@@ -23,8 +23,9 @@ class Index extends Controller
     public function redis()
     {
         $redis = new Redis();
-        $set = $redis->set('name','value',3600);
+//        $set = $redis->set('name','value',3600);dump($set);
         $get = $redis->get('name');
-        dump($get);dump($get);exit;
+        dump($get);exit;
+
     }
 }
