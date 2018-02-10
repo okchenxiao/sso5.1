@@ -1,6 +1,7 @@
 <?php
 namespace app\auth\controller;
 use think\Cache;
+use think\cache\driver\Redis;
 use think\Controller;
 class Index extends Controller
 {
@@ -21,8 +22,9 @@ class Index extends Controller
 
     public function redis()
     {
-        $set = Cache::store('redis')->set('name','value',3600);
-        $get = Cache::get('name');
+        $redis = new Redis();
+        $set = $redis->set('name','value',3600);
+        $get = $redis->get('name');
         dump($get);dump($get);exit;
     }
 }
