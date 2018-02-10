@@ -1,5 +1,6 @@
 <?php
 namespace app\auth\controller;
+use think\Cache;
 use think\Controller;
 class Index extends Controller
 {
@@ -16,5 +17,12 @@ class Index extends Controller
     public function ss()
     {
         dump($this->request->isPost());
+    }
+
+    public function redis()
+    {
+        $set = Cache::store('redis')->set('name','value',3600);
+        $get = Cache::get('name');
+        dump($get);dump($get);exit;
     }
 }
